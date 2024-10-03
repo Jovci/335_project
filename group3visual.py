@@ -316,8 +316,8 @@ def main():
     try:
         n = int(input("Enter the number of elements to sort: "))
     except ValueError:
-        print("Invalid input. Defaulting to 150 elements.")
-        n = 150  # Default to 150 elements if input is invalid
+        print("Invalid input. Defaulting to 200 elements.")
+        n = 200  # Default to 200 elements if input is invalid
 
     min_val = 1
     max_val = 100
