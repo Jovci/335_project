@@ -247,12 +247,6 @@ def radix_sort(draw_info):
     max1 = max(lst)  # Find the maximum number to determine the number of digits
     exp = 1
 
-    # Perform counting sort for every digit (starting from least significant digit)
-    while max1 // exp > 0:
-        yield from counting_sort(draw_info, lst, exp)
-        exp *= 10
-    return lst
-
 def linear_search(draw_info, target):
     """
     Linear Search Algorithm Visualization:
