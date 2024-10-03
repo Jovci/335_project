@@ -237,43 +237,6 @@ def partition(draw_info, lst, low, high):
     yield True
     return i + 1
 
-def counting_sort(draw_info, lst, exp):
-    """
-    Helper function for Radix Sort to perform Counting Sort based on significant digits.
-    Time Complexity: O(n), where n is the number of elements.
-    Space Complexity: O(n + k), where k is the number of digits (range of the count).
-    """
-    n = len(lst)
-    output = [0] * n  # Output array to store sorted numbers
-    count = [0] * 10  # Count array to store occurrences of each digit
-
-    # Count occurrences of digits
-    for i in range(n):
-        index = lst[i] // exp
-        count[index % 10] += 1
-        draw_list(draw_info, {i: draw_info.BLUE}, True)
-        yield True
-
-    # Update the count array to contain positions of digits
-    for i in range(1, 10):
-        count[i] += count[i - 1]
-        yield True
-
-    # Build the output array by placing elements in correct positions
-    i = n - 1
-    while i >= 0:
-        index = lst[i] // exp
-        output[count[index % 10] - 1] = lst[i]
-        count[index % 10] -= 1
-        i -= 1
-        yield True
-
-    # Copy the output array back to the original list
-    for i in range(n):
-        lst[i] = output[i]
-        draw_list(draw_info, {i: draw_info.GREEN}, True)
-        yield True
-
 def radix_sort(draw_info):
     """
     Radix Sort Algorithm Visualization:
